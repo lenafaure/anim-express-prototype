@@ -12,6 +12,7 @@
       <td><%= animator.last_name %></td>
       <td><%= link_to 'Edit', edit_animator_path(animator) %></td>
       <td><%= link_to 'Show', animator_path(animator) %></td>
+      <td><%= link_to 'Delete', animator_path(animator), method: :delete, data: {confirm: 'Are you sure?'} %></td>
     </tr>
   <% end %>
 </table>

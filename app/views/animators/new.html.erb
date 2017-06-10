@@ -1,28 +1,4 @@
 <h1>Create an Animator</h1>
 
-<% if @animator.errors.any? %>
-    <h2>The following errors prevented the animator to be created:</h2>
-    <ul>
-      <% @animator.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-<% end %>
+<%= render 'form' %>
 
-<%= form_for @animator do |f| %>
-    <p>
-      <%= f.label :first_name %><br/>
-      <%= f.text_field :first_name %>
-    </p>
-
-    <p>
-      <%= f.label :last_name %><br/>
-      <%= f.text_field :last_name %>
-    </p>
-
-    <p>
-      <%= f.submit %>
-    </p>
-<% end %>
-
-<%= link_to 'Back to animators list', animators_path %>

@@ -39,6 +39,13 @@ class AnimatorsController < ApplicationController
     @animator = Animator.find(params[:id])
   end
 
+  def destroy
+    @animator = Animator.find(params[:id])
+    @animator.destroy
+    flash[:notice] = "Animator was successfully deleted"
+    redirect_to animators_path
+  end
+
   private
     def animator_params
       params.require(:animator).permit(:first_name, :last_name)
