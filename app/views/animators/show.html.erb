@@ -1,0 +1,12 @@
+<h1>Showing selected Animator</h1>
+
+<p>
+  First Name: <%= @animator.first_name %>
+</p>
+
+<p>
+  Last Name: <%= @animator.last_name %>
+</p>
+
+<%= link_to 'Edit this animator', edit_animator_path(@animator) %> |
+<%= link_to 'Back to animators list', animators_path %>
