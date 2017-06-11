@@ -1,4 +1,5 @@
 class AnimatorsController < ApplicationController
+  before_action :set_animator, only: [:edit, :update, :show, :destroy]
 
   def index
     @animators = Animator.all
@@ -9,7 +10,6 @@ class AnimatorsController < ApplicationController
   end
 
   def edit
-    @animator = Animator.find(params[:id])
   end
 
   def create
@@ -25,7 +25,6 @@ class AnimatorsController < ApplicationController
   end
 
   def update
-    @animator = Animator.find(params[:id])
     if @animator.update(animator_params)
       flash[:notice] = "Animator was succesfully updated"
       redirect_to animator_path(@animator)
@@ -36,17 +35,18 @@ class AnimatorsController < ApplicationController
   end
 
   def show
-    @animator = Animator.find(params[:id])
   end
 
   def destroy
-    @animator = Animator.find(params[:id])
     @animator.destroy
     flash[:notice] = "Animator was successfully deleted"
     redirect_to animators_path
   end
 
   private
+    def set_animator
+      @animator = Animator.find(params[:id])
+    end
     def animator_params
       params.require(:animator).permit(:first_name, :last_name)
     end
