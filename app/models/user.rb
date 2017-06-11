@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_one :animator
+  before_save { self.email = email.downcase }
   validates :username,
             uniqueness: { case_sensitive: false },
             presence: true,

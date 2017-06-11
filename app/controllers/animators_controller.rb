@@ -15,7 +15,7 @@ class AnimatorsController < ApplicationController
   def create
     #render plain: params[:animator].inspect
     @animator = Animator.new(animator_params)
-
+    @animator.user = User.first
     if @animator.save
       flash[:notice] = "Animator was succesfully created"
       redirect_to animator_path(@animator)
