@@ -1,7 +1,7 @@
 class AnimatorsController < ApplicationController
   before_action :set_animator, only: [:edit, :update, :show, :destroy]
   before_action :require_user
-  before_action :require_admin, only: [:edit, :update, :destroy]
+  before_action :require_admin, except: [:show, :index]
 
   def index
     @animators = Animator.all

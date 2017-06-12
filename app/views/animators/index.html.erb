@@ -1,6 +1,17 @@
-<h1>Showing all Animators</h1>
+<h1>Quelques profils d'animateurs</h1>
 
-<%= link_to "Create new animator", new_animator_path %>
+<% if logged_in? && current_user.admin? %>
+  <%= link_to "Create new animator", new_animator_path %>
+<% end %>
+
+<% @animators.each do |animator| %>
+  <div class="col-md-3">
+    <%= animator.first_name %>
+    <%= animator.last_name %>
+    <%= link_to 'Show', animator_path(animator) %>
+  </div>
+<% end %>
+
 <table>
   <tr>
     <th>First Name</th>
@@ -13,9 +24,11 @@
       <td><%= link_to 'Show', animator_path(animator) %></td>
 
       <% if logged_in? && current_user.admin? %>
-      <td><%= link_to 'Edit', edit_animator_path(animator) %></td>
-      <td><%= link_to 'Delete', animator_path(animator), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        <td><%= link_to 'Edit', edit_animator_path(animator) %></td>
+        <td><%= link_to 'Delete', animator_path(animator), method: :delete, data: {confirm: 'Are you sure?'} %></td>
       <% end %>
       </tr>
   <% end %>
 </table>
+
+<div>Voir tous les profils disponibles</div>
