@@ -17,7 +17,7 @@ h1 {
 }
 
 .home_hero {
-  padding: 2em 0;
+  padding: 2em 0 1em 0;
 }
 
 .brand_text {
@@ -39,7 +39,19 @@ h1 {
   font-weight: 500;
 }
 
-.card_container {
+.card_container_content {
+  position: absolute;
+  bottom: 10px;
+  left: 30px;
   text-align: center;
-  border: 1px solid #eee;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.card_container_img {
+  background-size: cover;
+  height: 200px;
+  filter: brightness(.5);
 }
