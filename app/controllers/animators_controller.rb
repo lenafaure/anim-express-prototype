@@ -1,5 +1,6 @@
 class AnimatorsController < ApplicationController
   before_action :set_animator, only: [:edit, :update, :show, :destroy]
+  before_action :require_user
 
   def index
     @animators = Animator.all
