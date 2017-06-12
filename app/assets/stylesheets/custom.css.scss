@@ -41,11 +41,12 @@ h1 {
 
 .card_container {
   margin-bottom: 2em;
+  position: relative;
 }
 
 .card_container_content {
   position: absolute;
-  bottom: 10px;
+  bottom: 40px;
   left: 30px;
   text-align: center;
   font-weight: 600;
@@ -55,7 +56,6 @@ h1 {
 }
 
 .card_container_img {
-  background-size: cover;
   height: 200px;
   filter: brightness(.5);
 }
@@ -73,4 +73,15 @@ h1 {
 .home_see_more {
   margin: 2em 0;
   text-align: center;
+}
+
+.animators_heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5em;
+}
+
+.admin-btns {
+  padding-top: 10px;
 }

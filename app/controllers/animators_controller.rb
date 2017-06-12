@@ -4,7 +4,7 @@ class AnimatorsController < ApplicationController
   before_action :require_admin, except: [:show, :index]
 
   def index
-    @animators = Animator.all
+    @animators = Animator.all.order(id: :desc)
   end
 
   def new

@@ -1,7 +1,7 @@
 module ApplicationHelper
-  def gravatar_for(user)
-    gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
-    gravatar_url = "https://secure.gravatar.com/#{gravatar_id}"
-    image_tag("https://organicthemes.com/demo/profile/files/2012/12/profile_img.png", alt: user.first_name, class: "img-circle")
+  def profile_pic_for(user)
+    picture_id = user.id * rand(5..30)
+    picture_url = "https://unsplash.it/200/?image=#{picture_id}"
+    image_tag(picture_url, alt: user.first_name, class: "img-circle")
   end
 end

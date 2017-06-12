@@ -5,44 +5,34 @@
 </div>
 
 <div class="row">
-  <div class="col-md-12">
-    <h3>Tous les profils d'animateurs</h3>
-
-    <% if logged_in? && current_user.admin? %>
-        <%= link_to new_animator_path do %>
-            <%= content_tag :div, "+ créer un nouvel animateur", class: "btn btn-blue btn-lg"%>
-        <% end %>
-    <% end %>
+  <div class="col-md-12 animators_heading">
+    <div>
+      <h3>Tous les profils d'animateurs</h3>
+    </div>
+    <div>
+      <% if logged_in? && current_user.admin? %>
+          <%= link_to new_animator_path do %>
+              <%= content_tag :div, "+ créer un nouvel animateur", class: "btn btn-blue btn-lg"%>
+          <% end %>
+      <% end %>
+    </div>
   </div>
   <% @animators.each do |animator| %>
       <div class="col-md-3 card_container">
         <%= link_to animator_path(animator) do %>
-            <div class="card_container_img" style="background: url(https://unsplash.it/300/?image=<%= animator.id * rand(5..30)%>) no-repeat center">
+            <div class="card_container_img" style="background: #ED4378 url(https://unsplash.it/300/?image=<%= animator.id * rand(5..30)%>) no-repeat center; background-size: cover;">
             </div>
             <%= content_tag :div, "#{animator.first_name} #{animator.last_name}", class: "card_container_content"%>
-
+            <div>
+            <% if logged_in? && current_user.admin? %>
+               <div class="admin-btns">
+                <%= link_to 'Edit', edit_animator_path(animator), class: "btn btn-sm btn-info" %>
+                <%= link_to 'Delete', animator_path(animator), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-sm btn-danger" %>
+               </div>
+            <% end %>
+            </div>
         <% end %>
       </div>
   <% end %>
 
-  <div class="col-md-12 home_see_more">
-    <%= link_to animators_path do %>
-        <%= content_tag :div, "Voir tous les profils disponibles", class: "btn btn-blue btn-lg"%>
-    <% end %>
-  </div>
 </div>
-
-<% @animators.each do |animator| %>
-  <div class="col-md-3">
-    <%= animator.first_name %>
-    <%= animator.last_name %>
-    <%= link_to 'Show', animator_path(animator) %>
-    <% if logged_in? && current_user.admin? %>
-        <%= link_to 'Edit', edit_animator_path(animator) %>
-        <%= link_to 'Delete', animator_path(animator), method: :delete, data: {confirm: 'Are you sure?'} %>
-    <% end %>
-  </div>
-<% end %>
-
-
-<div class="col-md-12">Voir tous les profils disponibles</div>
