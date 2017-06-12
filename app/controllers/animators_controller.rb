@@ -19,7 +19,7 @@ class AnimatorsController < ApplicationController
     @animator = Animator.new(animator_params)
     @animator.user = User.first
     if @animator.save
-      flash[:notice] = "Animator was succesfully created"
+      flash[:success] = "Animator was succesfully created"
       redirect_to animator_path(@animator)
     else
       render 'new'
@@ -28,7 +28,7 @@ class AnimatorsController < ApplicationController
 
   def update
     if @animator.update(animator_params)
-      flash[:notice] = "Animator was succesfully updated"
+      flash[:success] = "Animator was succesfully updated"
       redirect_to animator_path(@animator)
     else
       render 'edit'
@@ -41,7 +41,7 @@ class AnimatorsController < ApplicationController
 
   def destroy
     @animator.destroy
-    flash[:notice] = "Animator was successfully deleted"
+    flash[:danger] = "Animator was successfully deleted"
     redirect_to animators_path
   end
 

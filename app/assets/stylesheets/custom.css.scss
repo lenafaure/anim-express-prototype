@@ -39,6 +39,10 @@ h1 {
   font-weight: 500;
 }
 
+.card_container {
+  margin-bottom: 2em;
+}
+
 .card_container_content {
   position: absolute;
   bottom: 10px;
@@ -54,4 +58,19 @@ h1 {
   background-size: cover;
   height: 200px;
   filter: brightness(.5);
+}
+
+.btn-blue {
+  color: #1C92B3;
+  border-color: #1C92B3;
+}
+
+.btn-blue:hover {
+  color: #fff;
+  background-color:  #1C92B3;
+}
+
+.home_see_more {
+  margin: 2em 0;
+  text-align: center;
 }

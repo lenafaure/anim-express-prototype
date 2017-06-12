@@ -1,11 +1,4 @@
-<% if @user.errors.any? %>
-    <h2>The following errors prevented the animator to be created:</h2>
-    <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-      <% end %>
-    </ul>
-<% end %>
+<%= render "shared/errors", obj: @user %>
 
 
 <div class="col-md-4">
@@ -13,7 +6,7 @@
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Je suis un centre de loisirs</a></li>
-    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab">Je suis un animateur</a></li>
+    <li role="presentation" class="disabled"><a href="#profile" aria-controls="profile" role="tab">Je suis un animateur</a></li>
   </ul>
 
   <!-- Tab panes -->
