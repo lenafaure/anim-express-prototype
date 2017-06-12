@@ -8,5 +8,7 @@
   Last Name: <%= @animator.last_name %>
 </p>
 
-<%= link_to 'Edit this animator', edit_animator_path(@animator) %> |
+<% if logged_in? && current_user.admin? %>
+  <%= link_to 'Edit this animator', edit_animator_path(@animator) %> |
+<% end %>
 <%= link_to 'Back to animators list', animators_path %>

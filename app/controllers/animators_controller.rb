@@ -1,6 +1,7 @@
 class AnimatorsController < ApplicationController
   before_action :set_animator, only: [:edit, :update, :show, :destroy]
   before_action :require_user
+  before_action :require_admin, only: [:edit, :update, :destroy]
 
   def index
     @animators = Animator.all
@@ -51,5 +52,11 @@ class AnimatorsController < ApplicationController
     def animator_params
       params.require(:animator).permit(:first_name, :last_name)
     end
+  def require_admin
+    if !current_user.admin?
+        flash[:danger] = "You are not an admin"
+        redirect_to root_path
+    end
+  end
 
 end

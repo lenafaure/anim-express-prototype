@@ -3,3 +3,20 @@ $navbar-default-bg: #eee;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 45px;
+  line-height: 56px;
+  letter-spacing: -0.8px;
+}
+
+.brand_text {
+  font-weight: 500;
+  color: #ED4378;
+}
+
