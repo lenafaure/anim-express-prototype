@@ -19,7 +19,7 @@ class AnimatorsController < ApplicationController
     @animator = Animator.new(animator_params)
     @animator.user = User.first
     if @animator.save
-      flash[:success] = "Animator was succesfully created"
+      flash[:success] = "L'animateur #{@animator.first_name} #{@animator.last_name} a été créé avec succès"
       redirect_to animator_path(@animator)
     else
       render 'new'
@@ -28,7 +28,7 @@ class AnimatorsController < ApplicationController
 
   def update
     if @animator.update(animator_params)
-      flash[:success] = "Animator was succesfully updated"
+      flash[:success] = "L'animateur #{@animator.first_name} #{@animator.last_name} a été modifié avec succès"
       redirect_to animator_path(@animator)
     else
       render 'edit'

@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      flash[:success] = "Welcome to Anim Express #{@user.first_name}"
+      flash[:success] = "Bienvenue #{@user.first_name} !"
       redirect_to user_path(@user)
     else
       render 'new'
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:success] = "Your account was successfully updated"
+      flash[:success] = "Votre profil a été modifié avec succès"
       redirect_to user_path
     else
       render 'edit'

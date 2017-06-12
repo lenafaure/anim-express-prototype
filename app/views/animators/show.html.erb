@@ -1,14 +1,21 @@
-<h1>Showing selected Animator</h1>
+<div class="row">
 
-<p>
-  First Name: <%= @animator.first_name %>
-</p>
+  <div class="col-md-3 profile_pic_user">
+    <%= profile_pic_for @animator %>
+  </div>
 
-<p>
-  Last Name: <%= @animator.last_name %>
-</p>
-
-<% if logged_in? && current_user.admin? %>
-  <%= link_to 'Edit this animator', edit_animator_path(@animator) %> |
-<% end %>
-<%= link_to 'Back to animators list', animators_path %>
+  <div class="col-md-9">
+    <h1><%= @animator.first_name %> <%= @animator.last_name %></h1>
+    <p>
+      <b>Prénom</b> <%= @animator.first_name %>
+    </p>
+    <p>
+      <b>Nom</b> <%= @animator.last_name %>
+    </p>
+    <div>
+    <% if logged_in? && current_user.admin? %>
+      <%= link_to 'Editer cet animateur', edit_animator_path(@animator), class: "btn btn-lg btn-blue" %>
+    <% end %>
+    </div>
+  </div>
+</div>

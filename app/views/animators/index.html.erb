@@ -26,8 +26,8 @@
             <div>
             <% if logged_in? && current_user.admin? %>
                <div class="admin-btns">
-                <%= link_to 'Edit', edit_animator_path(animator), class: "btn btn-sm btn-info" %>
-                <%= link_to 'Delete', animator_path(animator), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-sm btn-danger" %>
+                <%= link_to 'Modifier', edit_animator_path(animator), class: "btn btn-sm btn-info" %>
+                <%= link_to 'Supprimer', animator_path(animator), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-sm btn-danger" %>
                </div>
             <% end %>
             </div>
