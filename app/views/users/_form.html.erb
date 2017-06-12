@@ -7,27 +7,45 @@
     </ul>
 <% end %>
 
-<%= form_for @user do |f| %>
-    <p>
-      <%= f.label :email %><br/>
-      <%= f.email_field :email %>
-    </p>
 
-    <p>
-      <%= f.label :first_name %><br/>
-      <%= f.text_field :first_name %>
-    </p>
+<div class="col-md-4">
 
-    <p>
-      <%= f.label :last_name %><br/>
-      <%= f.text_field :last_name %>
-    </p>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Je suis un centre de loisirs</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab">Je suis un animateur</a></li>
+  </ul>
 
-    <p>
-      <%= f.label :password %><br/>
-      <%= f.password_field :password %>
-    </p>
-    <p>
-      <%= f.submit(@user.new_record? ? "Sign Up" : "Save Changes", class: 'btn btn-primary') %>
-    </p>
-<% end %>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+      <%= form_for @user do |f| %>
+          <p>
+            <%= f.label :email %><br/>
+            <%= f.email_field :email %>
+          </p>
+
+          <p>
+            <%= f.label :first_name %><br/>
+            <%= f.text_field :first_name %>
+          </p>
+
+          <p>
+            <%= f.label :last_name %><br/>
+            <%= f.text_field :last_name %>
+          </p>
+
+          <p>
+            <%= f.label :password %><br/>
+            <%= f.password_field :password %>
+          </p>
+          <p>
+            <%= f.submit(@user.new_record? ? "Sign Up" : "Save Changes", class: 'btn btn-primary') %>
+          </p>
+      <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="profile">...</div>
+  </div>
+
+</div>
+

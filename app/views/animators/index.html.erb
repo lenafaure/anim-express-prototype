@@ -1,34 +1,23 @@
-<h1>Quelques profils d'animateurs</h1>
 
-<% if logged_in? && current_user.admin? %>
-  <%= link_to "Create new animator", new_animator_path %>
-<% end %>
+
+<div class="col-md-12">
+  <h1>Quelques profils d'animateurs</h1>
+  <% if logged_in? && current_user.admin? %>
+    <%= link_to "Create new animator", new_animator_path %>
+  <% end %>
+</div>
 
 <% @animators.each do |animator| %>
   <div class="col-md-3">
     <%= animator.first_name %>
     <%= animator.last_name %>
     <%= link_to 'Show', animator_path(animator) %>
+    <% if logged_in? && current_user.admin? %>
+        <%= link_to 'Edit', edit_animator_path(animator) %>
+        <%= link_to 'Delete', animator_path(animator), method: :delete, data: {confirm: 'Are you sure?'} %>
+    <% end %>
   </div>
 <% end %>
 
-<table>
-  <tr>
-    <th>First Name</th>
-    <th>Last Name</th>
-  </tr>
-  <% @animators.each do |animator| %>
-    <tr>
-      <td><%= animator.first_name %></td>
-      <td><%= animator.last_name %></td>
-      <td><%= link_to 'Show', animator_path(animator) %></td>
 
-      <% if logged_in? && current_user.admin? %>
-        <td><%= link_to 'Edit', edit_animator_path(animator) %></td>
-        <td><%= link_to 'Delete', animator_path(animator), method: :delete, data: {confirm: 'Are you sure?'} %></td>
-      <% end %>
-      </tr>
-  <% end %>
-</table>
-
-<div>Voir tous les profils disponibles</div>
+<div class="col-md-12">Voir tous les profils disponibles</div>
