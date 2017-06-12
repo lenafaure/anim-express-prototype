@@ -8,8 +8,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "Welecome to Anim Express #{@user.username}"
-      redirect_to login_path
+      session[:user_id] = @user.id
+      flash[:success] = "Welcome to Anim Express #{@user.username}"
+      redirect_to user_path(@user)
     else
       render 'new'
     end
