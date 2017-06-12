@@ -6,6 +6,7 @@ $navbar-default-bg: #eee;
 body {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 300;
+  color: #484848 !important;
 }
 
 h1 {
@@ -15,8 +16,26 @@ h1 {
   letter-spacing: -0.8px;
 }
 
+.home_hero {
+  padding: 2em 0;
+}
+
 .brand_text {
   font-weight: 500;
   color: #ED4378;
+}
+
+.navbar-default {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.navbar-brand {
+  font-weight: 600;
+  color: #ED4378 !important;
+}
+
+.menu_link {
+  font-weight: 500;
 }
 
