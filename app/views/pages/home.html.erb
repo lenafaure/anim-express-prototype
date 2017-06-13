@@ -1,5 +1,5 @@
 
-<div class="row">
+
 <div class="col-md-8">
   <div class="home_hero">
     <h1>
@@ -8,26 +8,24 @@
     </h1>
   </div>
 </div>
+
+<div class="col-md-12">
+  <h3>Derniers animateurs inscrits:</h3>
+</div>
+<% @animators.limit(4).each do |animator| %>
+  <div class="col-md-3 card_container">
+    <%= link_to animator_path(animator) do %>
+        <div class="card_container_img" style="background: #ED4378 url(https://unsplash.it/300/?image=<%= animator.id * rand(5..30)%>) no-repeat center; background-size: cover;">
+        </div>
+        <%= content_tag :div, "#{animator.first_name} #{animator.last_name}", class: "card_container_content"%>
+
+  <% end %>
+  </div>
+<% end %>
+
+<div class="col-md-12 home_see_more">
+  <%= link_to animators_path do %>
+      <%= content_tag :div, "Voir tous les profils disponibles", class: "btn btn-blue btn-lg"%>
+  <% end %>
 </div>
 
-<div class="row">
-    <div class="col-md-12">
-      <h3>Derniers animateurs inscrits:</h3>
-    </div>
-    <% @animators.limit(4).each do |animator| %>
-      <div class="col-md-3 card_container">
-        <%= link_to animator_path(animator) do %>
-            <div class="card_container_img" style="background: #ED4378 url(https://unsplash.it/300/?image=<%= animator.id * rand(5..30)%>) no-repeat center; background-size: cover;">
-            </div>
-            <%= content_tag :div, "#{animator.first_name} #{animator.last_name}", class: "card_container_content"%>
-
-      <% end %>
-      </div>
-    <% end %>
-
-    <div class="col-md-12 home_see_more">
-      <%= link_to animators_path do %>
-          <%= content_tag :div, "Voir tous les profils disponibles", class: "btn btn-blue btn-lg"%>
-      <% end %>
-    </div>
-</div>

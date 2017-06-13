@@ -17,7 +17,7 @@ h1 {
 }
 
 .home_hero {
-  padding: 2em 0 1em 0;
+  padding: 2em 0 2em 0;
 }
 
 .brand_text {
@@ -78,10 +78,15 @@ h1 {
 }
 
 .animators_heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 1.5em;
+}
+
+@media screen and (min-width: 769px) {
+  .animators_heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .admin-btns {
@@ -91,3 +96,4 @@ h1 {
 .profile_pic_user {
   margin-top: 30px;
 }
+
